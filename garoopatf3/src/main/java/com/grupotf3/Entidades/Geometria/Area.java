@@ -18,14 +18,61 @@ public class Area{
     public Ponto getPInfDir() {
         return pInfDir;
     }
-/*
-    public SituacaoReta classifica(Reta reta){
-        int minX = pSupEsq.getX();
-        int maxY = pSupEsq.getY();
-        int maxX = pInfDir.getX();
-        int minY = pInfDir.getY();
+
+    private int computaTeste(int x, int y){
+        int xMin = pSupEsq.getX();
+        int xMax = pInfDir.getX();
+        int yMin = pInfDir.getY();
+        int yMax = pSupEsq.getY();
+
+        int code = INSIDE;
+
+        if (x < xMin){
+            code = code|LEFT;
+        }
+        else if (x > xMax){
+            code = code|RIGHT;
+        }
+        if(y < yMin){
+            code = code|BOTTOM;
+        }
+        else if(y > yMax){
+            code = code|TOP;
+        }
+
+        return code;
     }
-*/
+
+    private SituacaoReta calculaSituacao(int x0, int y0, int x1, int y1){
+        int code0 = computaTeste(x0,y0);
+        int code1 = computaTeste(x1,y1);
+        boolean accept = false;
+        String aux1 = Integer.toBinaryString(code0|code1);
+        String aux2 = Integer.toBinaryString(code0 & code1);
+        while(true){
+            if( aux1.charAt(aux1.length()-1) == '0'){
+                accept = true;
+                return SituacaoReta.TODA_DENTRO;
+            }
+            else if (aux2.charAt(aux2.length()-1) != '0'){
+                return SituacaoReta.TODA_FORA;
+            }
+            else{
+                return SituacaoReta.INTERSECTA;
+            }
+        }
+    }
+
+    public SituacaoReta classifica(Reta reta){
+        int x1 = reta.getP1().getX();
+        int y1 = reta.getP1().getY();
+        int x2 = reta.getP2().getX();
+        int y2 = reta.getP2().getY();
+
+        return calculaSituacao(x1,y1,x2,y2);
+        
+    }
+
     public String toString(){
         return "Area ["+pSupEsq+","+pInfDir+"]";
     }
