@@ -1,6 +1,6 @@
 package com.grupotf3;
 
-public class Bairros{
+public class Bairro{
     private String nome;
     private Area limites;
     private int custoBasico;
