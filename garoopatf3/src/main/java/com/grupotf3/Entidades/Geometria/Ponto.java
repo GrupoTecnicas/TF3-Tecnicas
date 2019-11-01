@@ -1,4 +1,4 @@
-package com.grupotf3;
+package com.grupotf3.Entidades.Geometria;
 
 public class Ponto{
     private int x, y;
@@ -12,8 +12,8 @@ public class Ponto{
         return x;
     }
 
-    public int getX(){
-        return x;
+    public int getY(){
+        return y;
     }
 
     public String toString(){

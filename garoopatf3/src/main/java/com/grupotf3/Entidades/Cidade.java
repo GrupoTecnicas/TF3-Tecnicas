@@ -1,4 +1,4 @@
-package com.grupotf3;
+package com.grupotf3.Entidades;
 
 import java.util.ArrayList;
 import java.util.List;

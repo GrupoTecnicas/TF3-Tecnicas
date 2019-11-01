@@ -1,4 +1,6 @@
-package com.grupotf3;
+package com.grupotf3.Entidades;
+
+import com.grupotf3.Entidades.Geometria.Area;
 
 public class Bairro{
     private String nome;

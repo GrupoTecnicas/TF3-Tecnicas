@@ -1,4 +1,4 @@
-package com.grupotf3;
+package com.grupotf3.Entidades.Geometria;
 
 public class Area{
     private Ponto pSupEsq, pInfDir;
@@ -20,6 +20,13 @@ public class Area{
     }
 
     private int computaTeste(int x, int y){
+        final int INSIDE = 0;
+        final int LEFT = 1;
+        final int RIGHT = 2;
+        final int BOTTOM = 4;
+        final int TOP = 8;
+
+
         int xMin = pSupEsq.getX();
         int xMax = pInfDir.getX();
         int yMin = pInfDir.getY();

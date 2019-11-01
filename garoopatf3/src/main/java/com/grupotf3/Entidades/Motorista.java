@@ -1,4 +1,4 @@
-package com.grupotf3;
+package com.grupotf3.Entidades;
 
 public class Motorista{
     enum FormaPagamento{

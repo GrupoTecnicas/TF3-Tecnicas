@@ -1,4 +1,4 @@
-package com.grupotf3;
+package com.grupotf3.Entidades.Geometria;
 
 public class Reta{
     private Ponto p1,p2;

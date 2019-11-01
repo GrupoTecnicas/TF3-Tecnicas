@@ -1,4 +1,4 @@
-package com.grupotf3;
+package com.grupotf3.Entidades;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
