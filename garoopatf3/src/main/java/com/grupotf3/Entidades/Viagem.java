@@ -30,6 +30,14 @@ public class Viagem{
         return passageiro;
     }
 
+    public double getCusto(){
+        return custo;
+    }
+
+    public Roteiro getRoteiro(){
+        return roteiro;
+    }
+
     public String toString(){
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
         return "Viagem: "+id+"\nTempo: "+dataHora.format(formato)+"\nMotorista: "+motorista.getNome()+"\nPassageiro: "+passageiro.getNome();

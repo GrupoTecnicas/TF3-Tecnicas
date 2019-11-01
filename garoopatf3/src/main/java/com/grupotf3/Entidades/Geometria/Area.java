@@ -53,12 +53,10 @@ public class Area{
     private SituacaoReta calculaSituacao(int x0, int y0, int x1, int y1){
         int code0 = computaTeste(x0,y0);
         int code1 = computaTeste(x1,y1);
-        boolean accept = false;
         String aux1 = Integer.toBinaryString(code0|code1);
         String aux2 = Integer.toBinaryString(code0 & code1);
         while(true){
             if( aux1.charAt(aux1.length()-1) == '0'){
-                accept = true;
                 return SituacaoReta.TODA_DENTRO;
             }
             else if (aux2.charAt(aux2.length()-1) != '0'){
