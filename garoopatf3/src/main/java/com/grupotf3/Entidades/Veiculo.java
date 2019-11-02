@@ -1,8 +1,6 @@
 package com.grupotf3.Entidades;
 public class Veiculo{
-    enum CategoriaVeiculo{
-        SIMPLES, NORMAL, LUXO;
-    }
+    
 
     private String placa,marca,cor;
 
