@@ -1,5 +1,9 @@
 package com.grupotf3.Entidades;
 
+import java.util.ArrayList;
+
+import com.grupotf3.Entidades.Geometria.*;
+
 public class Roteiro{
     private Cidade cidade;
     private Bairro bOrigem, bDestino;
@@ -20,6 +24,24 @@ public class Roteiro{
 
     public Bairro getDestino(){
         return bDestino;
+    }
+
+    public ArrayList<Bairro> getBairros(){
+        Ponto p1 = bOrigem.getCentro();
+        Ponto p2 = bDestino.getCentro();
+        Reta r = new Reta(p1,p2);
+        ArrayList<Bairro> aux = new ArrayList<>();
+        if(bOrigem.getNome().equals(bDestino.getNome())){
+            aux.add(bOrigem);
+        }
+        else{
+            for (Bairro b : cidade.getBairros()) {
+                if(b.getLimites().classifica(r) == SituacaoReta.INTERSECTA){
+                    aux.add(b);
+                }
+            }
+        }
+        return aux;
     }
 
     public String toString(){

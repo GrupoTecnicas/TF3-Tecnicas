@@ -12,15 +12,30 @@ public class CustoViagem{
         this.passageiro = passageiro;
         custo = 0.0;
     }
-/*
-    public double calculaCusto(Motorista m){
+
+    public double calculaCusto(Motorista m, Roteiro roteiro){
         switch(m.getVeiculo().getCategoria()){
-            case SIMPLES: custo = 39.0; break;
-            case NORMAL: custo = 39.0 + ()
+            case SIMPLES: custo = getCustosBasicos(roteiro); break;
+            case NORMAL: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); break;
+            case LUXO: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); custo = custo + (custo*percent(roteiro)); break;
         }
         return custo;
     }
-*/
+
+    private double getCustosBasicos(Roteiro roteiro){
+        double cont = 0;
+        for(Bairro b: roteiro.getBairros()){
+            cont += b.getCustoBasico();
+        }
+        return cont;
+    }
+
+    private double percent(Roteiro roteiro){
+        double resp = roteiro.getBairros().size()*2;
+        resp = resp/100;
+        return resp;
+    }
+
     public Motorista getMotorista(){
         return motorista;
     }
