@@ -6,17 +6,17 @@ public class Veiculo{
 
     private CategoriaVeiculo cat;
 
-    private boolean catInferior, portaMalasGrande;
+   // private boolean catInferior, portaMalasGrande;
 
     public Veiculo(String placa, String marca, String cor, CategoriaVeiculo cat){
         this.placa = placa;
         this.marca = marca;
         this.cor = cor;
         this.cat = cat;
-        catInferior = setCatInferior(cat);
-        portaMalasGrande = setPortaMalas(cat);
+       // catInferior = setCatInferior(cat);
+       // portaMalasGrande = setPortaMalas(cat);
     }
-
+/*
     private boolean setCatInferior(CategoriaVeiculo cat){
         switch(cat){
             case SIMPLES: return false;
@@ -30,15 +30,7 @@ public class Veiculo{
             default: return false;
         }
     }
-
-    public boolean getCategoriaInferior(){
-        return catInferior;
-    }
-
-    public boolean getPortaMalas(){
-        return portaMalasGrande;
-    }
-
+*/
     public String getPlaca(){
         return placa;
     }
@@ -56,6 +48,6 @@ public class Veiculo{
     }
 
     public String toString(){
-        return "Placa: "+placa+"\nMarca: "+marca+"\nCor: "+cor+"\nCategoria do veiculo: "+cat+"\nAtende categoria inferior? "+catInferior+"\nTem porta malas grande? "+portaMalasGrande;
+        return "Placa: "+placa+"\nMarca: "+marca+"\nCor: "+cor+"\nCategoria do veiculo: "+cat;
     }
 }
