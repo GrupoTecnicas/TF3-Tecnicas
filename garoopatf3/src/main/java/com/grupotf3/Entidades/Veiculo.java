@@ -1,21 +1,5 @@
 package com.grupotf3.Entidades;
-public class Veiculo{
-    
-
-    private String placa,marca,cor;
-
-    private CategoriaVeiculo cat;
-
-   // private boolean catInferior, portaMalasGrande;
-
-    public Veiculo(String placa, String marca, String cor, CategoriaVeiculo cat){
-        this.placa = placa;
-        this.marca = marca;
-        this.cor = cor;
-        this.cat = cat;
-       // catInferior = setCatInferior(cat);
-       // portaMalasGrande = setPortaMalas(cat);
-    }
+public abstract class Veiculo{
 /*
     private boolean setCatInferior(CategoriaVeiculo cat){
         switch(cat){
@@ -31,23 +15,15 @@ public class Veiculo{
         }
     }
 */
-    public String getPlaca(){
-        return placa;
-    }
+    public abstract String getPlaca();
 
-    public String getMarca(){
-        return marca;
-    }
+    public abstract String getMarca();
 
-    public String getCor(){
-        return cor;
-    }
+    public abstract String getCor();
 
-    public CategoriaVeiculo getCategoria(){
-        return cat;
-    }
+    public abstract CategoriaVeiculo getCategoria();
 
     public String toString(){
-        return "Placa: "+placa+"\nMarca: "+marca+"\nCor: "+cor+"\nCategoria do veiculo: "+cat;
+        return "Placa: "+this.getPlaca()+"\nMarca: "+this.getMarca()+"\nCor: "+this.getCor()+"\nCategoria do veiculo: "+this.getCategoria();
     }
 }
