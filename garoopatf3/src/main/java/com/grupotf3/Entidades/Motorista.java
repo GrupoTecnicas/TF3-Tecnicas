@@ -1,10 +1,7 @@
 package com.grupotf3.Entidades;
 
 public class Motorista{
-    enum FormaPagamento{
-        DINHEIRO, DEBITO, CREDITO;
-    }
-
+    
     private String cpf, nome;
     private int qtdAval, somaAval;
     private Veiculo veiculo;

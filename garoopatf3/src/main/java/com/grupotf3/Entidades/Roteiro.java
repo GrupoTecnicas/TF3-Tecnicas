@@ -1,50 +1,54 @@
 package com.grupotf3.Entidades;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.grupotf3.Entidades.Geometria.*;
 
-public class Roteiro{
+public class Roteiro {
     private Cidade cidade;
-    private Bairro bOrigem, bDestino;
+    private Bairro bairroOrigem;
+    private Bairro bairroDestino;
 
-    public Roteiro(Cidade cidade, Bairro bOrigem, Bairro bDestino){
-        this.cidade = cidade;
-        this.bOrigem = bOrigem;
-        this.bDestino = bDestino;
+    public static Roteiro criaRoteiro(Cidade cidade,Bairro origem,Bairro destino){
+        return new Roteiro(cidade,origem,destino);
     }
 
-    public Cidade getCidade(){
+    private Roteiro(Cidade cidade, Bairro bairroOrigem, Bairro bairroDestino) {
+        this.cidade = cidade;
+        this.bairroOrigem = bairroOrigem;
+        this.bairroDestino = bairroDestino;
+    }
+    
+    public Cidade getCidade() {
         return cidade;
     }
 
-    public Bairro getOrigem(){
-        return bOrigem;
+    public Bairro getOrigem() {
+        return bairroOrigem;
     }
 
-    public Bairro getDestino(){
-        return bDestino;
+    public Bairro getDestino() {
+        return bairroDestino;
     }
 
-    public ArrayList<Bairro> getBairros(){
-        Ponto p1 = bOrigem.getCentro();
-        Ponto p2 = bDestino.getCentro();
-        Reta r = new Reta(p1,p2);
-        ArrayList<Bairro> aux = new ArrayList<>();
-        if(bOrigem.getNome().equals(bDestino.getNome())){
-            aux.add(bOrigem);
-        }
-        else{
-            for (Bairro b : cidade.getBairros()) {
-                if(b.getLimites().classifica(r) == SituacaoReta.INTERSECTA){
-                    aux.add(b);
-                }
-            }
-        }
-        return aux;
+    //Define a reta que representa o percurso da viagem
+    public Reta getRota(){
+        Ponto pOrig = bairroOrigem.getLimites().pontoCentral();
+        Ponto pDest = bairroOrigem.getLimites().pontoCentral();
+        return new Reta(pOrig,pDest);
+    }
+
+    // Define a lista de bairros percorridos
+    public List<Bairro> bairrosPercorridos(){
+        return cidade
+                .getBairros()
+                .stream()
+                .filter(b->b.getLimites().classifica(this.getRota())!= SituacaoReta.TODA_FORA)
+                .collect(Collectors.toList());
     }
 
     public String toString(){
-        return "Cidade: "+cidade.getNome()+"\nBairro origem: "+bOrigem.getNome()+"\nBairro destino: "+bDestino.getNome();
+        return "Cidade: "+cidade.getNome()+"\nBairro origem: "+bairroOrigem.getNome()+"\nBairro destino: "+bairroDestino.getNome();
     }
 }

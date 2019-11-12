@@ -17,21 +17,21 @@ public class CustoViagem{
         switch(m.getVeiculo().getCategoria()){
             case SIMPLES: custo = getCustosBasicos(roteiro); break;
             case NORMAL: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); break;
-            case LUXO: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); custo = custo + (custo*percent(roteiro)); break;
+            case LUXO: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); custo = custo + (custo*percentLuxo(roteiro)); break;
         }
         return custo;
     }
 
     private double getCustosBasicos(Roteiro roteiro){
         double cont = 0;
-        for(Bairro b: roteiro.getBairros()){
+        for(Bairro b: roteiro.bairrosPercorridos()){
             cont += b.getCustoBasico();
         }
         return cont;
     }
 
-    private double percent(Roteiro roteiro){
-        double resp = roteiro.getBairros().size()*2;
+    private double percentLuxo(Roteiro roteiro){
+        double resp = roteiro.bairrosPercorridos().size()*2;
         resp = resp/100;
         return resp;
     }

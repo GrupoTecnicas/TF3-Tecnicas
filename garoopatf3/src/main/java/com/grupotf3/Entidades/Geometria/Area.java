@@ -19,6 +19,12 @@ public class Area{
         return pInfDir;
     }
 
+    public Ponto pontoCentral(){
+        int x = pInfDir.getX()/2;
+        int y = pSupEsq.getY()/2;
+        return new Ponto(x,y);
+    }
+
     private int computaTeste(int x, int y){
         final int INSIDE = 0;
         final int LEFT = 1;
