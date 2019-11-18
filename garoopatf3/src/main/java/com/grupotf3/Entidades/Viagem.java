@@ -13,12 +13,17 @@ public class Viagem{
     private double custo;
     private CustoViagem custoViagem;
 
-    public Viagem(int id, Motorista motorista, Passageiro passageiro, Roteiro roteiro){
+    public static Viagem novaViagem(int id, Roteiro roteiro, Motorista motorista, Passageiro passageiro, double custo){
+        return new Viagem(id,roteiro,motorista,passageiro,custo);
+    }
+
+    private Viagem(int id, Roteiro roteiro, Motorista motorista, Passageiro passageiro, double custo){
         this.id = id;
         dataHora = Calendar.getInstance();
+        this.roteiro = roteiro;
         this.motorista = motorista;
         this.passageiro = passageiro;
-        custo = 0.0;
+        this.custo = custo;
         custoViagem = new CustoViagem(motorista, passageiro);
     }
 

@@ -13,4 +13,9 @@ public class SelecaoMotorista{
     public Motorista getMotorista(String cpf){
         return motoristas.recuperaPorCPF(cpf);
     }
+
+    public Motorista selecionaMotoristaParaViagem(String categoriaVeiculo){
+
+        return null;
+    }
 }

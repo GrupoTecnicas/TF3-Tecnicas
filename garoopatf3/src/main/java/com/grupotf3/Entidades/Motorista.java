@@ -7,13 +7,29 @@ public class Motorista{
     private Veiculo veiculo;
     private FormaPagamento forma;
 
-    public Motorista(String cpf, String nome, Veiculo veiculo, FormaPagamento forma){
+    public static Motorista criaMotorista(String cpf, String nome, Veiculo veiculo, String formaPgto){
+        return new Motorista(cpf,nome,veiculo, formaPgto);
+    }
+
+    private Motorista(String cpf, String nome, Veiculo veiculo, String forma){
         this.cpf = cpf;
         this.nome = nome;
         qtdAval = 0;
         somaAval = 0;
         this.veiculo = veiculo;
-        this.forma = forma;
+        this.forma = definePagamento(forma);
+    }
+
+    private FormaPagamento definePagamento(String pgto){
+        if(pgto.equalsIgnoreCase("debito")){
+            return FormaPagamento.DEBITO;
+        }
+        else if(pgto.equalsIgnoreCase("credito")){
+            return FormaPagamento.CREDITO;
+        }
+        else{
+            return FormaPagamento.DINHEIRO;
+        }
     }
 
     public String getCPF(){
