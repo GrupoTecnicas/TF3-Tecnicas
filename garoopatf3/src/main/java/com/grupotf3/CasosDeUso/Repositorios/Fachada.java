@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Fachada{
     private CustoViagem custoViagem;
+    private SelecaoMotorista selecaoMotorista;
     private RepositorioMotorista motoristas;
     private RepositorioPassageiro passageiros;
     private RepositorioViagem viagens;
@@ -28,10 +29,10 @@ public class Fachada{
         Bairro origem = bairros.recuperaBairro(bOrig);
         Bairro destino = bairros.recuperaBairro(bDest);
         Roteiro roteiro = Roteiro.criaRoteiro(cidade,origem,destino);
-        //Motorista motorista = selecaoMotorista.selecionaMotoristaParaViagem(roteiro,catVeiculo);
-        //Veiculo veiculo = motorista.getVeiculo();
-        //double custo = custoViagem.calculaCusto(motorista, roteiro);
-        //v = Viagem.novaViagem(id, roteiro, motorista, passageiro, custo);
+        Motorista motorista = selecaoMotorista.selecionaMotoristaParaViagem(catVeiculo);
+        Veiculo veiculo = motorista.getVeiculo();
+        double custo = custoViagem.calculaCusto(motorista, roteiro);
+        v = Viagem.novaViagem(id, roteiro, motorista, passageiro, custo);
         viagens.cadastraViagem(v);
         return v;
     }

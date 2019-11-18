@@ -2,6 +2,9 @@ package com.grupotf3.CasosDeUso.Politicas;
 
 import com.grupotf3.CasosDeUso.Repositorios.*;
 import com.grupotf3.Entidades.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class SelecaoMotorista{
     private RepositorioMotorista motoristas;
@@ -10,12 +13,20 @@ public class SelecaoMotorista{
         this.motoristas = motoristas;
     }
 
-    public Motorista getMotorista(String cpf){
-        return motoristas.recuperaPorCPF(cpf);
+    public Motorista selecionaMotoristaParaViagem(String categoriaVeiculo){
+        Random rand = new Random();
+        List<Motorista> list = listaCat(categoriaVeiculo);
+        int index = rand.nextInt(list.size());
+        return list.get(index);
     }
 
-    public Motorista selecionaMotoristaParaViagem(String categoriaVeiculo){
-
-        return null;
+    private List<Motorista> listaCat(String categoria){
+        List<Motorista> lista = new ArrayList<>();
+        for(Motorista m : motoristas.getLista()){
+            if(m.getVeiculo().getCategoria().equals(CategoriaVeiculo.valueOf(categoria))){
+                lista.add(m);
+            }
+        }
+        return lista;
     }
 }
