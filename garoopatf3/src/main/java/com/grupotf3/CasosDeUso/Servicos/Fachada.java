@@ -1,6 +1,7 @@
-package com.grupotf3.CasosDeUso.Repositorios;
+package com.grupotf3.CasosDeUso.Servicos;
 
 import com.grupotf3.CasosDeUso.Politicas.*;
+import com.grupotf3.CasosDeUso.Repositorios.*;
 import com.grupotf3.Entidades.*;
 import java.util.List;
 
@@ -40,6 +41,10 @@ public class Fachada{
     public List<Viagem> recuperaViagensMotorista(String cpf){
         Motorista mot = motoristas.recuperaPorCPF(cpf);
         return viagens.getViagens(mot);
+    }
+
+    public Motorista getMotorista(String cpf){
+        return motoristas.recuperaPorCPF(cpf);
     }
 
     public boolean informaPontuacaoMotorista(String cpf){
