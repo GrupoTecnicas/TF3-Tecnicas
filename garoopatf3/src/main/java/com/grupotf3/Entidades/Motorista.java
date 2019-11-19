@@ -56,6 +56,10 @@ public class Motorista{
         return somaAval;
     }
 
+    public int mediaAval(){
+        return (int)Math.floor(somaAval/qtdAval);
+    }
+
     public String toString(){
         return "Nome: "+nome+"\nCPF: "+cpf+"\nVeiculo: "+veiculo.getMarca()+" - Placa: "+veiculo.getPlaca()+"\nForma de pagamento: "+forma+"\nQuantidade de avaliações: "+qtdAval+"\nSoma das avaliações: "+somaAval;
     }

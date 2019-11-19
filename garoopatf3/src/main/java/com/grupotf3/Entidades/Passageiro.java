@@ -3,7 +3,11 @@ public class Passageiro{
     private int qtdAval, somaAval;
     private String cpf,nome;
 
-    public Passageiro(String cpf, String nome){
+    public static Passageiro novoPassageiro(String cpf, String nome){
+        return new Passageiro(cpf,nome);
+    }
+
+    private Passageiro(String cpf, String nome){
         this.nome = nome;
         this.cpf = cpf;
         qtdAval = 0;
@@ -28,6 +32,10 @@ public class Passageiro{
 
     public int getSomaAval(){
         return somaAval;
+    }
+
+    public int mediaAval(){
+        return (int)Math.floor(somaAval/qtdAval);
     }
 
     public void setSomaAval(int somaAval){

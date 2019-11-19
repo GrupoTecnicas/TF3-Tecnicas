@@ -31,7 +31,7 @@ public class Fachada{
         Roteiro roteiro = Roteiro.criaRoteiro(cidade,origem,destino);
         Motorista motorista = selecaoMotorista.selecionaMotoristaParaViagem(catVeiculo);
         Veiculo veiculo = motorista.getVeiculo();
-        double custo = custoViagem.calculaCusto(motorista, roteiro);
+        double custo = custoViagem.calculaCusto(veiculo, roteiro);
         v = Viagem.novaViagem(id, roteiro, motorista, passageiro, custo);
         viagens.cadastraViagem(v);
         return v;

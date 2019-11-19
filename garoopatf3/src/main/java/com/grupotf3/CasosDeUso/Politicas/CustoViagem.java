@@ -13,8 +13,8 @@ public class CustoViagem{
         custo = 0.0;
     }
 
-    public double calculaCusto(Motorista m, Roteiro roteiro){
-        switch(m.getVeiculo().getCategoria()){
+    public double calculaCusto(Veiculo v, Roteiro roteiro){
+        switch(v.getCategoria()){
             case SIMPLES: custo = getCustosBasicos(roteiro); break;
             case NORMAL: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); break;
             case LUXO: custo = getCustosBasicos(roteiro) + (getCustosBasicos(roteiro)*0.1); custo = custo + (custo*percentLuxo(roteiro)); break;

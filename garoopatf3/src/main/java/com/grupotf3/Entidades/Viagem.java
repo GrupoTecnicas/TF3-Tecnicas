@@ -44,7 +44,7 @@ public class Viagem{
     }
 
     public double getCusto(){
-        custo = custoViagem.calculaCusto(motorista, roteiro);
+        custo = custoViagem.calculaCusto(motorista.getVeiculo(), roteiro);
         return custo;
     }
 
