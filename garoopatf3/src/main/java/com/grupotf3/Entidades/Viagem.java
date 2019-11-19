@@ -24,7 +24,7 @@ public class Viagem{
         this.motorista = motorista;
         this.passageiro = passageiro;
         this.custo = custo;
-        custoViagem = new CustoViagem(motorista, passageiro);
+        custoViagem = new CustoViagem();
     }
 
     public int getId(){

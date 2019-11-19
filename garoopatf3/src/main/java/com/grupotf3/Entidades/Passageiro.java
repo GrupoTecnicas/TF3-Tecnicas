@@ -26,8 +26,8 @@ public class Passageiro{
         return qtdAval;
     }
 
-    public void setQtdAval(int qtdAval){
-        this.qtdAval = qtdAval;
+    public void novaAval(){
+        qtdAval++;
     }
 
     public int getSomaAval(){
@@ -38,8 +38,8 @@ public class Passageiro{
         return (int)Math.floor(somaAval/qtdAval);
     }
 
-    public void setSomaAval(int somaAval){
-        this.somaAval = somaAval;
+    public void novaSomaAval(int aval){
+        somaAval += aval;
     }
 
     public String toString(){

@@ -5,11 +5,19 @@ import java.util.ArrayList;
 import com.grupotf3.Entidades.Motorista;
 import com.grupotf3.Entidades.Viagem;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class RepositorioViagem implements IRepositorioViagem{
     private List<Viagem> viagens;
 
     public RepositorioViagem(List<Viagem> viagens){
         this.viagens = viagens;
+    }
+
+    public RepositorioViagem(){
+        viagens = new ArrayList<>();
     }
 
     @Override

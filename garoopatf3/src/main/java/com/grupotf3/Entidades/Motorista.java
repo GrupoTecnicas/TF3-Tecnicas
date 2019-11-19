@@ -52,8 +52,16 @@ public class Motorista{
         return qtdAval;
     }
 
+    public void novaAval(){
+        qtdAval++;
+    }
+
     public int getSomaAval(){
         return somaAval;
+    }
+
+    public void novaSomaAval(int aval){
+        somaAval += aval;
     }
 
     public int mediaAval(){

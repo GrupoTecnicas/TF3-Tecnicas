@@ -7,14 +7,14 @@ public class Bairro{
     private String nome;
     private Area limites;
     private double custoBasico;
-/*
-    public static Bairro criaBairroQuadrado(String nome,Ponto p,int lado,double custo){
-        Area a = new Area(pSupEsq, pInfDir);
-        return new Bairro(nome, a, custo);
-    }
-*/
 
-    public Bairro(String nome, Area limites, double custoBasico){
+    public static Bairro criaBairro(String nome,Ponto p1,Ponto p2,double custo){
+        Area area = new Area(p1, p2);
+        return new Bairro(nome, area, custo);
+    }
+
+
+    private Bairro(String nome, Area limites, double custoBasico){
         this.nome = nome;
         this.limites = limites;
         this.custoBasico = custoBasico;

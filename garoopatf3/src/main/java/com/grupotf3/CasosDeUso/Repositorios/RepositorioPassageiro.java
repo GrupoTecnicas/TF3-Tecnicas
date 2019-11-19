@@ -1,14 +1,23 @@
 package com.grupotf3.CasosDeUso.Repositorios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.grupotf3.Entidades.Passageiro;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class RepositorioPassageiro implements IRepositorioPassageiro{
     private List<Passageiro> passageiros;
 
     public RepositorioPassageiro(List<Passageiro> passageiros){
         this.passageiros = passageiros;
+    }
+
+    public RepositorioPassageiro(){
+        passageiros = new ArrayList<>();
     }
 
     public List<Passageiro> getLista(){
