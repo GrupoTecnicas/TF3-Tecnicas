@@ -14,10 +14,6 @@ public class RepositorioCidade implements IRepositorioCidade{
         this.cidades = cidades;
     }
 
-    public RepositorioCidade(){
-        cidades = new ArrayList<>();
-    }
-
     @Override
     public Cidade recuperaCidade(String nome){
         for(Cidade c : cidades){

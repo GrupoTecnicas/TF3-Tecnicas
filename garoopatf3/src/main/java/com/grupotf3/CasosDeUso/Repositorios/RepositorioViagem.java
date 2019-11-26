@@ -16,10 +16,6 @@ public class RepositorioViagem implements IRepositorioViagem{
         this.viagens = viagens;
     }
 
-    public RepositorioViagem(){
-        viagens = new ArrayList<>();
-    }
-
     @Override
     public void cadastraViagem(Viagem viagem){
         viagens.add(viagem);

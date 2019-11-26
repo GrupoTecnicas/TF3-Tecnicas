@@ -16,10 +16,6 @@ public class RepositorioPassageiro implements IRepositorioPassageiro{
         this.passageiros = passageiros;
     }
 
-    public RepositorioPassageiro(){
-        passageiros = new ArrayList<>();
-    }
-
     public List<Passageiro> getLista(){
         return passageiros;
     }

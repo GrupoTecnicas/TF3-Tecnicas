@@ -12,30 +12,20 @@ import java.util.List;
 public class Fachada{
     private CustoViagem custoViagem;
     private SelecaoMotorista selecaoMotorista;
-    private RepositorioMotorista motoristas;
-    private RepositorioPassageiro passageiros;
-    private RepositorioViagem viagens;
-    private RepositorioCidade cidades;
-    private RepositorioBairros bairros;
+    private IRepositorioMotorista motoristas;
+    private IRepositorioPassageiro passageiros;
+    private IRepositorioViagem viagens;
+    private IRepositorioCidade cidades;
+    private IRepositorioBairros bairros;
 
     @Autowired
-    public Fachada(CustoViagem custoViagem, SelecaoMotorista selecao, RepositorioMotorista motoristas, RepositorioPassageiro passageiros, RepositorioViagem viagens, RepositorioCidade cidades, RepositorioBairros bairros){
+    public Fachada(CustoViagem custoViagem, SelecaoMotorista selecao, IRepositorioMotorista motoristas, IRepositorioPassageiro passageiros, IRepositorioViagem viagens, IRepositorioCidade cidades, IRepositorioBairros bairros){
         this.custoViagem = custoViagem;
         this.motoristas = motoristas;
         this.passageiros = passageiros;
         this.viagens = viagens;
         this.cidades = cidades;
         this.bairros = bairros;
-    }
-
-    @Autowired
-    public Fachada(){
-        custoViagem = new CustoViagem();
-        motoristas = new RepositorioMotorista();
-        passageiros = new RepositorioPassageiro();
-        viagens = new RepositorioViagem();
-        cidades = new RepositorioCidade();
-        bairros = new RepositorioBairros();
     }
 
     public Viagem solicitaVeiculoParaViagem(int id, String cpf, String nomeCidade, String bOrig, String bDest, String formaPagamento, String catVeiculo){

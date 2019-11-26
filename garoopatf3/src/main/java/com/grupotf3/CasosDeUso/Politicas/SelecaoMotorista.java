@@ -2,10 +2,14 @@ package com.grupotf3.CasosDeUso.Politicas;
 
 import com.grupotf3.CasosDeUso.Repositorios.*;
 import com.grupotf3.Entidades.*;
+
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@Component
 public class SelecaoMotorista{
     private RepositorioMotorista motoristas;
 

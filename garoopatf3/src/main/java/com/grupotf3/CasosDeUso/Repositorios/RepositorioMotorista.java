@@ -16,10 +16,6 @@ public class RepositorioMotorista implements IRepositorioMotorista{
         this.motoristas = motoristas;
     }
 
-    public RepositorioMotorista(){
-        motoristas = new ArrayList<>();
-    }
-
     public List<Motorista> getLista(){
         return motoristas;
     }

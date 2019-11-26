@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "com.grupotf3.App",
+            "projectName": "garoopatf3"
+        }
+    ]
+}

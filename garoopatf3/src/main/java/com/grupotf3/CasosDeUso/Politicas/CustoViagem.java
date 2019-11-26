@@ -2,6 +2,9 @@ package com.grupotf3.CasosDeUso.Politicas;
 
 import com.grupotf3.Entidades.*;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CustoViagem{
     private double custo;
 

@@ -14,10 +14,6 @@ public class RepositorioBairros implements IRepositorioBairros{
         this.bairros = bairros;
     }
 
-    public RepositorioBairros(){
-        bairros = new ArrayList<>();
-    }
-
     @Override
     public Bairro recuperaBairro(String nome){
         for(Bairro b : bairros){
@@ -32,4 +28,6 @@ public class RepositorioBairros implements IRepositorioBairros{
     public void atualizaBairros(Bairro bairro){
         bairros.add(bairro);
     }
+
+
 }
