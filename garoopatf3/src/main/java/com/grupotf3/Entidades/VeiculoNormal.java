@@ -31,4 +31,9 @@ public class VeiculoNormal extends Veiculo{
     public CategoriaVeiculo getCategoria(){
         return this.cat;
     }
+
+    @Override
+    public String toString(){
+        return "Placa: "+placa+"\nMarca: "+marca+"\nCor: "+cor+"\nCategoria do veiculo: "+cat;
+    }
 }

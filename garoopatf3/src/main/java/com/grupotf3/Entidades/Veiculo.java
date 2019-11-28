@@ -1,4 +1,9 @@
 package com.grupotf3.Entidades;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+
 public abstract class Veiculo{
 /*
     private boolean setCatInferior(CategoriaVeiculo cat){
@@ -23,7 +28,5 @@ public abstract class Veiculo{
 
     public abstract CategoriaVeiculo getCategoria();
 
-    public String toString(){
-        return "Placa: "+this.getPlaca()+"\nMarca: "+this.getMarca()+"\nCor: "+this.getCor()+"\nCategoria do veiculo: "+this.getCategoria();
-    }
+    public abstract String toString();
 }
