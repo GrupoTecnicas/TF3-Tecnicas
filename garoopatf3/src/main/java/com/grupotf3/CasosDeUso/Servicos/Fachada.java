@@ -93,4 +93,28 @@ public class Fachada{
         }
         return false;
     }
+
+    public Motorista registraMotorista(String cpf, String nome, String formaPgto, String placa, String marca, String cor, String cat){
+        Veiculo veiculo = FactoryVeiculo.criaVeiculo(placa, marca, cor, cat);
+        Motorista m = Motorista.criaMotorista(cpf, nome, veiculo, formaPgto);
+        motoristas.atualizaMotorista(m);
+        if(motoristas.recuperaPorCPF(cpf) != null){
+            return m;
+        }
+        return null;
+    }
+
+    public Passageiro registraPassageiro(String cpf, String nome){
+        Passageiro p = Passageiro.novoPassageiro(cpf, nome);
+        passageiros.atualizaPassageiro(p);
+        if(passageiros.recuperaPorCPF(cpf) != null){
+            return p;
+        }
+        return null;
+    }
+
+    public Cidade registraCidade(String nome){
+        
+    }
+
 }

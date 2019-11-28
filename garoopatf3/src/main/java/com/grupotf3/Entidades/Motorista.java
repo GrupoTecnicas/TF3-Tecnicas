@@ -17,19 +17,7 @@ public class Motorista{
         qtdAval = 0;
         somaAval = 0;
         this.veiculo = veiculo;
-        this.forma = definePagamento(forma);
-    }
-
-    private FormaPagamento definePagamento(String pgto){
-        if(pgto.equalsIgnoreCase("debito")){
-            return FormaPagamento.DEBITO;
-        }
-        else if(pgto.equalsIgnoreCase("credito")){
-            return FormaPagamento.CREDITO;
-        }
-        else{
-            return FormaPagamento.DINHEIRO;
-        }
+        this.forma = FormaPagamento.valueOf(forma);
     }
 
     public String getCPF(){

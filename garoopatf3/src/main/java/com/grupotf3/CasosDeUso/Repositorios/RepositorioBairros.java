@@ -1,6 +1,5 @@
 package com.grupotf3.CasosDeUso.Repositorios;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.grupotf3.Entidades.*;
 

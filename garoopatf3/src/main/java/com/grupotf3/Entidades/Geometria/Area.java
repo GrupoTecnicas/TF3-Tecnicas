@@ -20,8 +20,8 @@ public class Area{
     }
 
     public Ponto pontoCentral(){
-        int x = pInfDir.getX()/2;
-        int y = pSupEsq.getY()/2;
+        int x = (pSupEsq.getX()+pInfDir.getX())/2;
+        int y = (pSupEsq.getY()+pInfDir.getY())/2;
         return new Ponto(x,y);
     }
 
