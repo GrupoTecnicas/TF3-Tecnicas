@@ -2,11 +2,12 @@ package com.grupotf3.Interface;
 
 import com.grupotf3.CasosDeUso.Servicos.Fachada;
 import com.grupotf3.Entidades.*;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,15 +22,10 @@ public class FachadaRemota{
         this.fachada = fachada;
     }
 
-    @GetMapping("/solicitaVeiculoParaViagem")
-    public Viagem getDadosViagem(@RequestParam String cpf, @RequestParam String bOrig, @RequestParam String bDest, @RequestParam String formaPgto, @RequestParam String catVeiculo){
+    @GetMapping(path = "/solicitaVeiculoParaViagem")
+    public Viagem getDadosViagem(@RequestParam int id, @RequestParam String cpf, @RequestParam String cidade, @RequestParam String bOrig, @RequestParam String bDest, @RequestParam String formaPgto, @RequestParam String catVeiculo){
         Viagem viagem = fachada.solicitaVeiculoParaViagem(1, cpf, "Porto Alegre", bOrig, bDest, formaPgto, catVeiculo);
         return viagem;
-    }
-
-    @GetMapping("/getViagens")
-    public List<Viagem> getViagem(String cpfMotorista){
-        return fachada.recuperaViagensMotorista(cpfMotorista);
     }
 
     @GetMapping("/getMotorista")
@@ -47,18 +43,18 @@ public class FachadaRemota{
         return fachada.getCidade(nome);
     }
 
-    @PostMapping("/registroMotorista")
-    public void setDadoMotorista(@RequestParam String cpf, @RequestParam String nome, @RequestParam String formaPgto, @RequestParam String placa, @RequestParam String marca, @RequestParam String cor, @RequestParam String cat){
-        fachada.registraMotorista(cpf, nome, formaPgto, placa, marca, cor, cat);
+    @PostMapping("/registraMotorista")
+    public void setDadoMotorista(@RequestBody Motorista motorista){
+        fachada.registraMotorista(motorista);
     }
 
     @PostMapping("/registraPassageiro")
-    public void setDadosPassageiro(@RequestParam String cpf, @RequestParam String nome){
-        fachada.registraPassageiro(cpf, nome);
+    public void setDadosPassageiro(@RequestBody Passageiro p){
+        fachada.registraPassageiro(p);
     }
 
     @PostMapping("/registraCidade")
-    public void setDadosCidade(@RequestParam String nome){
+    public void setDadosCidade(@RequestBody String nome){
         fachada.registraCidade(nome);
     }
 }

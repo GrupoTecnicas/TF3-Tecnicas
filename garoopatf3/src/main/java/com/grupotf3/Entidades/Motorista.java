@@ -7,11 +7,11 @@ public class Motorista{
     private Veiculo veiculo;
     private FormaPagamento forma;
 
-    public static Motorista criaMotorista(String cpf, String nome, Veiculo veiculo, String formaPgto){
-        return new Motorista(cpf,nome,veiculo, formaPgto);
+    public static Motorista criaMotorista(String cpf, String nome, String formaPgto, Veiculo veiculo){
+        return new Motorista(cpf,nome,formaPgto,veiculo);
     }
 
-    private Motorista(String cpf, String nome, Veiculo veiculo, String forma){
+    private Motorista(String cpf, String nome, String forma, Veiculo veiculo){
         this.cpf = cpf;
         this.nome = nome;
         qtdAval = 0;
