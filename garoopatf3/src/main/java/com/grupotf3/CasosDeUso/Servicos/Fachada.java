@@ -7,6 +7,7 @@ import com.grupotf3.Entidades.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class Fachada{
@@ -52,6 +53,14 @@ public class Fachada{
         return motoristas.recuperaPorCPF(cpf);
     }
 
+    public Passageiro getPassageiro(String cpf){
+        return passageiros.recuperaPorCPF(cpf);
+    }
+
+    public Cidade getCidade(String nome){
+        return cidades.recuperaCidade(nome);
+    }
+
     public boolean pontuarMotorista(String cpf, int avaliacao){
         Motorista m = motoristas.recuperaPorCPF(cpf);
         if(m!=null){
@@ -94,27 +103,20 @@ public class Fachada{
         return false;
     }
 
-    public Motorista registraMotorista(String cpf, String nome, String formaPgto, String placa, String marca, String cor, String cat){
+    public void registraMotorista(String cpf, String nome, String formaPgto, String placa, String marca, String cor, String cat){
         Veiculo veiculo = FactoryVeiculo.criaVeiculo(placa, marca, cor, cat);
         Motorista m = Motorista.criaMotorista(cpf, nome, veiculo, formaPgto);
         motoristas.atualizaMotorista(m);
-        if(motoristas.recuperaPorCPF(cpf) != null){
-            return m;
-        }
-        return null;
     }
 
-    public Passageiro registraPassageiro(String cpf, String nome){
+    public void registraPassageiro(String cpf, String nome){
         Passageiro p = Passageiro.novoPassageiro(cpf, nome);
         passageiros.atualizaPassageiro(p);
-        if(passageiros.recuperaPorCPF(cpf) != null){
-            return p;
-        }
-        return null;
     }
 
-    public Cidade registraCidade(String nome){
-        
+    public void registraCidade(String nome){
+        Cidade cidade = Cidade.criaCidade(nome);
+        cidades.atualizaCidades(cidade);
     }
 
 }

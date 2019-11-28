@@ -8,7 +8,9 @@ public class Bairro{
     private Area limites;
     private double custoBasico;
 
-    public static Bairro criaBairro(String nome,Ponto p1,Ponto p2,double custo){
+    public static Bairro criaBairro(String nome,int x1,int y1,int x2, int y2,double custo){
+        Ponto p1 = new Ponto(x1,y1);
+        Ponto p2 = new Ponto(x2,y2);
         Area area = new Area(p1, p2);
         return new Bairro(nome, area, custo);
     }

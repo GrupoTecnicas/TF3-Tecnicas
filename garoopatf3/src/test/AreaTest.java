@@ -14,16 +14,6 @@ public class AreaTest{
         area = new Area(new Ponto(10,30),new Ponto(50,10));
     }
 
-    @DisplayName("Classifica pontos")
-    @ParameterizedTest
-    @CsvSource({"30,40,1","30,20,0","30,0,2",
-                "5,40,9","5,20,8","5,0,10",
-                "55,40,5","55,20,4","55,0,6"})
-    public void codPontoTest(int x,int y,byte rEsp) {
-        byte observed = area.codificaPonto(new Ponto(x,y));
-        assertEquals(rEsp,observed);
-    }
-
     @DisplayName("Classifica retas")
     @ParameterizedTest
     @CsvSource({"15,20,35,20,TODA_DENTRO",
