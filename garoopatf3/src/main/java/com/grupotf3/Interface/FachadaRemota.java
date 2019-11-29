@@ -53,7 +53,7 @@ public class FachadaRemota{
     }
 
     @PostMapping("/registraCidade")
-    public void setDadosCidade(@RequestBody String nome){
-        fachada.registraCidade(nome);
+    public void setDadosCidade(@RequestBody Cidade cidade){
+        fachada.registraCidade(cidade);
     }
 }

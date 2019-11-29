@@ -19,10 +19,10 @@ public class Cidade{
 
     private static List<Bairro> novosBairros(){
         List<Bairro> bairroList = new ArrayList<>();
-        bairroList.add(Bairro.criaBairro("Tristeza", 0, 10, 10, 0, 23.0));
+        bairroList.add(Bairro.criaBairro("Tristeza", 0, 10, 10, 0, 20.0));
         bairroList.add(Bairro.criaBairro("Glória", 0, 20, 20, 10, 10.0));
-        bairroList.add(Bairro.criaBairro("Restinga", 40, 40, 60, 30, 23.0));
-        bairroList.add(Bairro.criaBairro("Moinhos", 10, 20, 40, 10, 10.0));
+        bairroList.add(Bairro.criaBairro("Restinga", 40, 40, 60, 30, 12.0));
+        bairroList.add(Bairro.criaBairro("Moinhos", 10, 20, 40, 10, 30.0));
         return bairroList;
     }
 

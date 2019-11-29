@@ -1,5 +1,6 @@
 package com.grupotf3;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,5 +12,11 @@ public class App
     public static void main( String[] args )
     {
         SpringApplication.run(App.class, args);
+        /*
+        Gson json = new Gson();
+        Cidade c = Cidade.criaCidade("Porto Alegre");
+        String aux = json.toJson(c);
+        System.out.println(aux);
+        */
     }
 }

@@ -110,8 +110,7 @@ public class Fachada{
         passageiros.atualizaPassageiro(p);
     }
 
-    public void registraCidade( String nome){
-        Cidade cidade = Cidade.criaCidade(nome);
+    public void registraCidade( Cidade cidade){
         cidades.atualizaCidades(cidade);
     }
 
