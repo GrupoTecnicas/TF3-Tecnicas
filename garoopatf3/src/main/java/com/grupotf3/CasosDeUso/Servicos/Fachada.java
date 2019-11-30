@@ -18,6 +18,7 @@ public class Fachada{
     private  IRepositorioCidade cidades;
     private  IRepositorioBairros bairros;
 
+    @Autowired
     public Fachada( CustoViagem custoViagem,  SelecaoMotorista selecao,  IRepositorioMotorista motoristas,  IRepositorioPassageiro passageiros,  IRepositorioViagem viagens,  IRepositorioCidade cidades,  IRepositorioBairros bairros){
         this.custoViagem = custoViagem;
         this.motoristas = motoristas;
