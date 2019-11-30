@@ -1,4 +1,4 @@
-package com.grupotf3.Interface;
+package com.grupotf3.Interface.Controle;
 
 import com.grupotf3.CasosDeUso.Servicos.Fachada;
 import com.grupotf3.Entidades.*;
