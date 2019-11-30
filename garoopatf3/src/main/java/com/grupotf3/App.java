@@ -12,11 +12,5 @@ public class App
     public static void main( String[] args )
     {
         SpringApplication.run(App.class, args);
-        /*
-        Gson json = new Gson();
-        Cidade c = Cidade.criaCidade("Porto Alegre");
-        String aux = json.toJson(c);
-        System.out.println(aux);
-        */
     }
 }
