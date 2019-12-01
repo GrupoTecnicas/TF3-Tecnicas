@@ -19,6 +19,7 @@ public class FachadaRemota{
     @Autowired
     public FachadaRemota(Fachada fachada){
         this.fachada = fachada;
+        autoFill();
     }
 
     @GetMapping(path = "/solicitaVeiculoParaViagem")
@@ -55,5 +56,22 @@ public class FachadaRemota{
     @PostMapping("/registraCidade")
     public void setDadosCidade(@RequestBody Cidade cidade){
         fachada.registraCidade(cidade);
+    }
+
+    /*
+    O método abaixo preenche os repositórios. Motivo: teste para demonstração.
+    */
+    private void autoFill(){
+        String cidade = "Porto Alegre";
+        fachada.registraCidade(Cidade.criaCidade(cidade));
+        String nomeP = "Frederico";
+        String cpf= "85820571053";
+        fachada.registraPassageiro(Passageiro.novoPassageiro(cpf, nomeP));
+        String nomeM = "Celso";
+        cpf = "123456789";
+        Veiculo v = FactoryVeiculo.criaVeiculo("1234ABCD", "Fusca", "Preto", "NORMAL");
+        fachada.registraMotorista(Motorista.criaMotorista(cpf, nomeM, "DINHEIRO", v));
+        fachada.registraMotorista(Motorista.criaMotorista("987654321", "Roger", "DEBITO", FactoryVeiculo.criaVeiculo("4321DCBA", "Fiat", "Prata", "SIMPLES")));
+        fachada.registraMotorista(Motorista.criaMotorista("555000111", "Amanda", "CREDITO", FactoryVeiculo.criaVeiculo("5544ABBA", "BMW", "Azul Marinho", "LUXO")));
     }
 }

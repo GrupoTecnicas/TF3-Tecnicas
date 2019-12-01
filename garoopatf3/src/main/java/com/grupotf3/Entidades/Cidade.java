@@ -23,6 +23,7 @@ public class Cidade{
         bairroList.add(Bairro.criaBairro("Glória", 0, 20, 20, 10, 10.0));
         bairroList.add(Bairro.criaBairro("Restinga", 40, 40, 60, 30, 12.0));
         bairroList.add(Bairro.criaBairro("Moinhos", 10, 20, 40, 10, 30.0));
+        bairroList.add(Bairro.criaBairro("Teresópolis",10,10,40,5,10.0));
         return bairroList;
     }
 
