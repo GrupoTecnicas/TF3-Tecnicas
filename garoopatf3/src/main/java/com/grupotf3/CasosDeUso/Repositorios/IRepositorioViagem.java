@@ -11,5 +11,5 @@ import java.util.List;
 public interface IRepositorioViagem{
     void cadastraViagem(Viagem viagem);
     List<Viagem> getViagens(Motorista motorista);
-
+    List<Viagem> getTodasViagens();
 }

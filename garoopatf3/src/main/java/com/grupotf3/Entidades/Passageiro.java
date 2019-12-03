@@ -1,4 +1,5 @@
 package com.grupotf3.Entidades;
+
 public class Passageiro{
     private int qtdAval, somaAval;
     private String cpf,nome;

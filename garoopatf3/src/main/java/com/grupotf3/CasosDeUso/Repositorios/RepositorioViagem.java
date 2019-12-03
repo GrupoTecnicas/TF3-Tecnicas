@@ -17,6 +17,11 @@ public class RepositorioViagem implements IRepositorioViagem{
     }
 
     @Override
+    public List<Viagem>getTodasViagens(){
+        return viagens;
+    }
+
+    @Override
     public void cadastraViagem(Viagem viagem){
         viagens.add(viagem);
     }

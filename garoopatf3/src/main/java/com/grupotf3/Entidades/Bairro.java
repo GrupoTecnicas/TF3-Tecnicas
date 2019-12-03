@@ -35,9 +35,7 @@ public class Bairro{
     }
 
     public Ponto getCentro(){
-        int x = limites.getPInfDir().getX()/2;
-        int y = limites.getPSupEsq().getY()/2;
-        return new Ponto(x,y);
+        return limites.pontoCentral();
     }
 
     public String toString(){

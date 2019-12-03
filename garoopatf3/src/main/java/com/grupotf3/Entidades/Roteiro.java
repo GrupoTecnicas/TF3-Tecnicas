@@ -34,8 +34,8 @@ public class Roteiro {
 
     //Define a reta que representa o percurso da viagem
     public Reta getRota(){
-        Ponto pOrig = bairroOrigem.getLimites().pontoCentral();
-        Ponto pDest = bairroOrigem.getLimites().pontoCentral();
+        Ponto pOrig = bairroOrigem.getCentro();
+        Ponto pDest = bairroDestino.getCentro();
         return new Reta(pOrig,pDest);
     }
 
@@ -44,7 +44,7 @@ public class Roteiro {
         return cidade
                 .getBairros()
                 .stream()
-                .filter(b->b.getLimites().classifica(this.getRota())!= SituacaoReta.TODA_FORA)
+                .filter(b->b.getLimites().classifica(getRota())!= SituacaoReta.TODA_FORA)
                 .collect(Collectors.toList());
     }
 

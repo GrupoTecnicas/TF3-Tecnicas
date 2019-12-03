@@ -5,13 +5,16 @@ import com.grupotf3.CasosDeUso.Repositorios.*;
 import com.grupotf3.Entidades.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 @Service
 public class Fachada{
     private  CustoViagem custoViagem;
-    private SelecaoMotorista selecaoMotorista;
     private  IRepositorioMotorista motoristas;
     private  IRepositorioPassageiro passageiros;
     private  IRepositorioViagem viagens;
@@ -19,7 +22,7 @@ public class Fachada{
     private  IRepositorioBairros bairros;
 
     @Autowired
-    public Fachada( CustoViagem custoViagem,  SelecaoMotorista selecao,  IRepositorioMotorista motoristas,  IRepositorioPassageiro passageiros,  IRepositorioViagem viagens,  IRepositorioCidade cidades,  IRepositorioBairros bairros){
+    public Fachada( CustoViagem custoViagem,  IRepositorioMotorista motoristas,  IRepositorioPassageiro passageiros,  IRepositorioViagem viagens,  IRepositorioCidade cidades,  IRepositorioBairros bairros){
         this.custoViagem = custoViagem;
         this.motoristas = motoristas;
         this.passageiros = passageiros;
@@ -28,14 +31,15 @@ public class Fachada{
         this.bairros = bairros;
     }
 
-    public Viagem solicitaVeiculoParaViagem( int id,  String cpf,  String nomeCidade,  String bOrig,  String bDest,  String formaPagamento,  String catVeiculo){
+    public Viagem solicitaVeiculoParaViagem( int id,  String cpf,  String nomeCidade,  String bOrig,  String bDest,  String catVeiculo){
         Viagem v = null;
-         Passageiro passageiro = passageiros.recuperaPorCPF(cpf);
+        Passageiro passageiro = passageiros.recuperaPorCPF(cpf);
          Cidade cidade = cidades.recuperaCidade(nomeCidade);
+         bairros.atualizaBairros(cidade.getBairros());
          Bairro origem = bairros.recuperaBairro(bOrig);
          Bairro destino = bairros.recuperaBairro(bDest);
          Roteiro roteiro = Roteiro.criaRoteiro(cidade,origem,destino);
-         Motorista motorista = selecaoMotorista.selecionaMotoristaParaViagem(catVeiculo);
+         Motorista motorista = selecionaMotoristaParaViagem(catVeiculo);
          Veiculo veiculo = motorista.getVeiculo();
          double custo = custoViagem.calculaCusto(veiculo, roteiro);
         v = Viagem.novaViagem(id, roteiro, motorista, passageiro, custo);
@@ -114,4 +118,36 @@ public class Fachada{
         cidades.atualizaCidades(cidade);
     }
 
+    public void registraViagem(Viagem viagem){
+        viagens.cadastraViagem(viagem);
+    }
+
+    public List<Motorista> getMotoristas(){
+        return motoristas.getLista();
+    }
+    public List<Passageiro> getPassageiros(){
+        return passageiros.getLista();
+    }
+    public List<Cidade> getCidades(){
+        return cidades.getLista();
+    }
+
+    public List<Viagem>getViagens(){
+        return viagens.getTodasViagens();
+    }
+
+    public Motorista selecionaMotoristaParaViagem(String categoriaVeiculo){
+        List<Motorista> list = listaCat(categoriaVeiculo);
+        return list.get(0);
+    }
+
+    private List<Motorista> listaCat(String categoria){
+        List<Motorista> lista = new ArrayList<>();
+        for(Motorista m : motoristas.getLista()){
+            if(m.getVeiculo().getCategoria().toString().equalsIgnoreCase(categoria)){
+                lista.add(m);
+            }
+        }
+        return lista;
+    }
 }

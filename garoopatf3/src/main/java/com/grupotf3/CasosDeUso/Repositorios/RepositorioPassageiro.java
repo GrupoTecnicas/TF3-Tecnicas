@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.grupotf3.Entidades.Passageiro;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 
@@ -14,7 +15,7 @@ public class RepositorioPassageiro implements IRepositorioPassageiro{
     public RepositorioPassageiro(List<Passageiro> passageiros){
         this.passageiros = passageiros;
     }
-
+    @Override
     public List<Passageiro> getLista(){
         return passageiros;
     }

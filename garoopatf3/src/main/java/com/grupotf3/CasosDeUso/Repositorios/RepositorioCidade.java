@@ -14,13 +14,19 @@ public class RepositorioCidade implements IRepositorioCidade{
     }
 
     @Override
+    public List<Cidade>getLista(){
+        return cidades;
+    }
+
+    @Override
     public Cidade recuperaCidade(String nome){
+        Cidade c1 = Cidade.criaCidade("Batatinha");
         for(Cidade c : cidades){
-            if(c.getNome().equals(nome)){
-                return c;
+            if(c.getNome().equalsIgnoreCase(nome)){
+                c1 = c;
             }
         }
-        return null;
+        return c1;
     }
 
     @Override

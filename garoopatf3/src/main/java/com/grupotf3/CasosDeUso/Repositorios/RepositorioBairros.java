@@ -16,7 +16,7 @@ public class RepositorioBairros implements IRepositorioBairros{
     @Override
     public Bairro recuperaBairro(String nome){
         for(Bairro b : bairros){
-            if(b.getNome().equals(nome)){
+            if(b.getNome().equalsIgnoreCase(nome)){
                 return b;
             }
         }
@@ -24,9 +24,10 @@ public class RepositorioBairros implements IRepositorioBairros{
     }
 
     @Override
-    public void atualizaBairros(Bairro bairro){
-        bairros.add(bairro);
+    public void atualizaBairros(List<Bairro> bairro){
+        for(Bairro b : bairro){
+            bairros.add(b);
+        }
     }
-
 
 }
